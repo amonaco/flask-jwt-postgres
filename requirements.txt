@@ -1,0 +1,7 @@
+Flask==0.12.3
+Flask-Bcrypt==0.7.1
+Flask-JWT-Extended==3.7.2
+Flask-SQLAlchemy==2.3.2
+psycopg2==2.7.7
+SQLAlchemy==1.2.18
+jsonschema==3.0.1
