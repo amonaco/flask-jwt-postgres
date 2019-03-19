@@ -36,11 +36,3 @@ class User(Base):
     @classmethod
     def find_user_by_username(cls, username):
         return cls.query.filter_by(username=username).first()
-
-
-class Picture(Base):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), unique=True, nullable=False)
-    path = db.Column(db.String(255), unique=True, nullable=False)
-
-
