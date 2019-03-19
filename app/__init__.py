@@ -4,12 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 import datetime
+import config
 
 app = Flask(__name__)
-# this stuff is actually in config, remove from here
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/auth'
-# app.config['JWT_SECRET_KEY'] = 'f9a5112f32a14a39aeef19e8874a9ee7'
-# app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=5)
+app.config.from_object('config')
 
 flask_bcrypt = Bcrypt(app)
 jwt = JWTManager(app)

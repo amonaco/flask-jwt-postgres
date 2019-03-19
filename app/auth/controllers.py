@@ -18,7 +18,7 @@ def index():
 
 @jwt.unauthorized_loader
 def unauthorized_response(callback):
-    return jsonify({ 'ok': False, 'message': 'Missing Authorization Header' }), 401
+    return jsonify({ 'ok': False, 'message': 'Missing authorization header' }), 401
 
 
 @app.route('/auth', methods=['POST'])
@@ -35,7 +35,7 @@ def auth_user():
             user.refresh = refresh_token
             return jsonify({'ok': True, 'access_token': access_token, 'refresh_token': refresh_token}), 200
         else:
-            return jsonify({'ok': False, 'message': 'invalid credentials.'}), 401
+            return jsonify({'ok': False, 'message': 'Invalid credentials'}), 401
     else:
         return jsonify({'ok': False, 'message': 'Bad request parameters: {}'.format(data['message'])}), 400
 
@@ -49,7 +49,7 @@ def register():
         user = User(name=data['name'], email=data['email'], password=data['password'])
         db.session.add(user)
         db.session.commit()
-        return jsonify({'ok': True, 'message': 'User created successfully.'}), 200
+        return jsonify({'ok': True, 'message': 'User created successfully'}), 200
     else:
         return jsonify({'ok': False, 'message': 'Bad request parameters: {}'.format(data['message'])}), 400
 
